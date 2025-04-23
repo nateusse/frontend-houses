@@ -1,0 +1,6 @@
+{
+    "sonarlint.connectedMode.project": {
+        "connectionId": "sonarqube-localhost-9000",
+        "projectKey": "frontend-houses"
+    }
+}

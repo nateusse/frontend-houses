@@ -1,0 +1,88 @@
+h2{
+  font-family: 'Manrope',  sans-serif;
+  font-weight: 400;
+}
+
+.category-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    font-family: 'Manrope',  sans-serif;
+    font-weight: 400;
+  }
+  
+  .category-container h2 {
+    margin-bottom: 1.5rem;
+    font-size: 24px;
+    
+    
+  }
+  
+  .category-form .form-group {
+    margin-bottom: 1.5rem;
+    font-family: 'Manrope',  sans-serif;
+    font-weight: 400;
+  }
+  
+  .category-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .category-form input,
+  .category-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    
+  }
+  
+  .category-form input:focus,
+  .category-form textarea:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .error small {
+    color: #e74c3c;
+    font-size: 12px;
+  }
+  
+  .description-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.25rem;
+  }
+  
+  .char-count {
+    font-size: 12px;
+    color: #888;
+  }
+  
+  .form-actions {
+    text-align: right;
+  }
+  
+  .form-actions button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .form-actions button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  

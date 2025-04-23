@@ -1,0 +1,34 @@
+<h2>Crear Categoría</h2>
+<div class="category-container">
+    
+  
+    <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()" class="category-form">
+      <div class="form-group">
+        <label for="name">Nombre de la Categoría *</label>
+        <input type="text" id="name" formControlName="name"
+               placeholder="Escribe el nombre de la categoría (máximo 50 caracteres)" />
+        <div class="error" *ngIf="categoryForm.get('name')?.touched && categoryForm.get('name')?.invalid">
+          <small *ngIf="categoryForm.get('name')?.errors?.['required']">Este campo es obligatorio.</small>
+          <small *ngIf="categoryForm.get('name')?.errors?.['maxlength']">Máximo 50 caracteres.</small>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="description">Descripción *</label>
+        <textarea id="description" rows="3" formControlName="description"
+                  placeholder="Enter category description"></textarea>
+        <div class="description-footer">
+          <div class="error" *ngIf="categoryForm.get('description')?.touched && categoryForm.get('description')?.invalid">
+            <small *ngIf="categoryForm.get('description')?.errors?.['required']">Este campo es obligatorio.</small>
+            <small *ngIf="categoryForm.get('description')?.errors?.['maxlength']">Máximo 90 caracteres.</small>
+          </div>
+          <small class="char-count">{{ categoryForm.get('description')?.value?.length || 0 }}/90</small>
+        </div>
+      </div>
+  
+      <div class="form-actions">
+        <button type="submit" [disabled]="categoryForm.invalid">Crear</button>
+      </div>
+    </form>
+  </div>
+  
