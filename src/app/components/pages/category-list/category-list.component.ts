@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../../../shared/models/services/category.service';
 import { Category } from '../../models/category';
+import { Observable, subscribeOn } from 'rxjs';
+import { PageDto } from 'src/app/shared/models/pageDto';
 
 
 @Component({
@@ -11,6 +13,8 @@ import { Category } from '../../models/category';
 export class CategoryListComponent implements OnInit {
 
   // Put private propiertes 
+
+  PageDto!: Observable<PageDto<Category>>; // no iniciar, viene del servicio ?opcional ! ten fe , poner any no
 
   categoriesList: Category[] = [];
 
@@ -23,11 +27,14 @@ export class CategoryListComponent implements OnInit {
   //ngOinit ponerle el contructor 
   constructor(private categoryService: CategoryService) {}
 
-  ngOnInit(): void {
-    this.getCategories();
+  ngOnInit(): void { 
+    //this.getCategories();
+    //lamar al 2, para no usar observable sino async
+    this.getCategories2();
   }
   
   getCategories(): void {
+    // pipe asynch isntead o subscrib
     this.categoryService.getCategories(this.page, this.size, true).subscribe({
       next: (data) => {
         this.categoriesList = data.content;
@@ -62,4 +69,10 @@ export class CategoryListComponent implements OnInit {
       this.getCategories();
     }
   }
+
+   getCategories2(): void {
+    this.PageDto = this.categoryService.getCategories(this.page, this.size, true) ;
+   
+   }
+
 }
