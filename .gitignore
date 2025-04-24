@@ -43,10 +43,10 @@ Thumbs.db
 
 #Sonar
 sonar-project.properties
-
+.sonarlint/
 
 #extras
-.angular
-.vscode
-.github
-.scannerwork
+.angular/
+.vscode/
+.github/
+.scannerwork/
