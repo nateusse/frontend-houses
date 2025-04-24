@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../../../shared/models/services/category.service';
 import { Category } from '../../models/category';
-import { Observable, subscribeOn } from 'rxjs';
+import { map, Observable, subscribeOn } from 'rxjs';
 import { PageDto } from 'src/app/shared/models/pageDto';
 
 
@@ -16,7 +16,7 @@ export class CategoryListComponent implements OnInit {
 
   PageDto!: Observable<PageDto<Category>>; // no iniciar, viene del servicio ?opcional ! ten fe , poner any no
 
-  categoriesList: Category[] = [];
+  //categoriesList: Category[] = [];
 
   page = 0;
   size = 5;
@@ -37,7 +37,7 @@ export class CategoryListComponent implements OnInit {
     // pipe asynch isntead o subscrib
     this.categoryService.getCategories(this.page, this.size, true).subscribe({
       next: (data) => {
-        this.categoriesList = data.content;
+        //this.categoriesList = data.content;
         this.totalPages = data.totalPages;
        // this.pages = Array.from({ length: this.totalPages }, (_, i) => i);
       },
@@ -71,7 +71,7 @@ export class CategoryListComponent implements OnInit {
   }
 
    getCategories2(): void {
-    this.PageDto = this.categoryService.getCategories(this.page, this.size, true) ;
+    this.PageDto = this.categoryService.getCategories(this.page, this.size, true).pipe(map((data) => {console.log(data); return data;}));
    
    }
 

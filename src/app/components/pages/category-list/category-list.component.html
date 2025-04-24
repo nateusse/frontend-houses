@@ -1,6 +1,6 @@
 
 <!-- semantic HML, article, main, section .... no div , mejor SEO-->
-<div *ngIf=" PageDto | async" class="category-wrapper"> <!-- piip-->
+<div *ngIf=" PageDto | async as categoriesList" class="category-wrapper"> <!-- piip--> <!-- para no usar table-->
     <h2>Categorías existentes</h2>
   
     <!--construir todo compomennte, divede later-->
@@ -15,12 +15,12 @@
       </thead>
       <tbody>
         <!-- puedo susbribirme desde la tabla getcategries2-->
-        <tr *ngFor="let category of categoriesList">
+        <tr *ngFor="let category of categoriesList.content">
           <td>#CAT-{{ category.id }}</td>
           <td>{{ category.name }}</td>
           <td>{{ category.description }}</td>
           <td>
-            <!-- <button class="delete-button" (click)="deleteCategory(category.id)"></button> -->
+             <!--<button class="delete-button" (click)="deleteCategory(category.id)"></button> -->
           </td>
         </tr>
       </tbody>

@@ -6,3 +6,4 @@ export interface PageDto<T> {
     totalPages: number;
     hasNext: boolean;
   }
+  //con clase toca constructor, metodos
