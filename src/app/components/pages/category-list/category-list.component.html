@@ -1,6 +1,9 @@
+
+<!-- semantic HML, article, main, section .... no div , mejor SEO-->
 <div class="category-wrapper">
     <h2>Categorías existentes</h2>
   
+    <!--construir todo compomennte, divede later-->
     <table class="category-table">
       <thead>
         <tr>
@@ -21,9 +24,10 @@
         </tr>
       </tbody>
     </table>
-  
+    
     <div class="pagination">
       <button (click)="prevPage()" [disabled]="page === 0">&lt;</button>
+      <!-- p esta muy feo, clean code-->
       <button *ngFor="let p of pages" (click)="goToPage(p)" [class.active]="page === p">{{ p + 1 }}</button>
       <button (click)="nextPage()" [disabled]="page === totalPages - 1">&gt;</button>
     </div>

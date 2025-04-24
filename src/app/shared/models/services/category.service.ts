@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Environments } from 'src/enviroments/environments';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Category } from './category';
-import { PageDto } from '../../shared/models/pageDto';
+import { Category } from '../../../components/models/category';
+import { PageDto } from '../pageDto';
 
 @Injectable({
   providedIn: 'root'

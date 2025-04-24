@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../../category.service';
-import { Category } from '../../category';
+import { CategoryService } from '../../../shared/models/services/category.service';
+import { Category } from '../../models/category';
+
 
 @Component({
   selector: 'app-category-list',
@@ -9,6 +10,8 @@ import { Category } from '../../category';
 })
 export class CategoryListComponent implements OnInit {
 
+  // Put private propiertes 
+
   categoriesList: Category[] = [];
 
   page = 0;
@@ -16,18 +19,20 @@ export class CategoryListComponent implements OnInit {
   totalPages = 1;
   pages: number[] = [];
 
+  //Create with @Inject, no with dependency inyection 
+  //ngOinit ponerle el contructor 
   constructor(private categoryService: CategoryService) {}
 
   ngOnInit(): void {
     this.getCategories();
   }
-
+  
   getCategories(): void {
     this.categoryService.getCategories(this.page, this.size, true).subscribe({
       next: (data) => {
         this.categoriesList = data.content;
         this.totalPages = data.totalPages;
-        this.pages = Array.from({ length: this.totalPages }, (_, i) => i);
+       // this.pages = Array.from({ length: this.totalPages }, (_, i) => i);
       },
       error: (error: unknown) => {
         if (error instanceof Error) {
