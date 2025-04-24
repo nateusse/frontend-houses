@@ -3,7 +3,7 @@ import { Environments } from 'src/enviroments/environments';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Category } from './category';
-import { PageDto } from '../models/pageDto';
+import { PageDto } from '../../shared/models/pageDto';
 
 @Injectable({
   providedIn: 'root'

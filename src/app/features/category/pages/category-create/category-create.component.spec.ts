@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { CategoryCreateComponent } from './category-create.component';
 
 describe('CategoryCreateComponent', () => {
@@ -8,11 +8,13 @@ describe('CategoryCreateComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CategoryCreateComponent]
+      declarations: [CategoryCreateComponent],
+      imports: [ReactiveFormsModule]
     });
-    fixture = TestBed.createComponent(CategoryCreateComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+
+    fixture = TestBed.createComponent(CategoryCreateComponent); 
+    component = fixture.componentInstance;                     
+    fixture.detectChanges();                                  
   });
 
   it('should create', () => {

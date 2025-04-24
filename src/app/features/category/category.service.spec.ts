@@ -3,7 +3,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 
 import { CategoryService } from './category.service';
 import { Category } from './category';
-import { PageDto } from '../models/pageDto';
+import { PageDto } from '../../shared/models/pageDto';
 
 describe('CategoryService', () => {
   let service: CategoryService;
