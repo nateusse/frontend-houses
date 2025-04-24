@@ -48,5 +48,4 @@ sonar-project.properties
 #extras
 .angular/
 .vscode/
-.github/
 .scannerwork/
