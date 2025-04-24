@@ -11,9 +11,9 @@ export class CategoryListComponent implements OnInit {
 
   categoriesList: Category[] = [];
 
-  page: number = 0;
-  size: number = 5;
-  totalPages: number = 1;
+  page = 0;
+  size = 5;
+  totalPages = 1;
   pages: number[] = [];
 
   constructor(private categoryService: CategoryService) {}
@@ -29,8 +29,12 @@ export class CategoryListComponent implements OnInit {
         this.totalPages = data.totalPages;
         this.pages = Array.from({ length: this.totalPages }, (_, i) => i);
       },
-      error: (error: any) => {
-        console.error('Error fetching categories:', error);
+      error: (error: unknown) => {
+        if (error instanceof Error) {
+          console.error('Error fetching categories:', error.message);
+        } else {
+          console.error('Error fetching categories:', error);
+        }
       }
     });
   }
