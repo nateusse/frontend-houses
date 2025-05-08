@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CategoryCreateComponent } from '../../../components/pages/category-create/category-create.component';
+import { CategoryCreateComponent } from '../../../components/pages/category/category-create/category-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CategoryListComponent } from 'src/app/components/pages/category-list/category-list.component';
+import { CategoryListComponent } from 'src/app/components/pages/category/category-list/category-list.component';
 
 
 @NgModule({
