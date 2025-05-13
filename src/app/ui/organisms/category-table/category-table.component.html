@@ -1,0 +1,32 @@
+<table class="category-table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let category of categories">
+      <td>{{ category.id }}</td>
+      <td>{{ category.name }}</td>
+      <td>{{ category.description }}</td>
+      <td class="actions">
+        <button class="delete-btn">
+          <app-icon name="trash-can" [style]="'regular'"></app-icon>
+
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<nav class="pagination-controls" aria-label="Paginación de categorías">
+  <button *ngFor="let pageIndex of pages"
+          [class.active]="pageIndex === currentPage"
+          (click)="onPageChange(pageIndex)"
+          [attr.aria-current]="pageIndex === currentPage ? 'page' : null">
+    {{ pageIndex + 1 }}
+  </button>
+</nav>

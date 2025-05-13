@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CategoryModule } from './features/category/category.module';
 import {  HttpClientModule } from '@angular/common/http';
 import { AvatarComponent } from './ui/atoms/avatar/avatar.component';
+import { CategoryTableModule } from './ui/organisms/category-table/category-table.module';
 
 
 
@@ -12,14 +13,13 @@ import { AvatarComponent } from './ui/atoms/avatar/avatar.component';
   declarations: [
     AppComponent,
     AvatarComponent,
-
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     CategoryModule,
-    HttpClientModule
+    HttpClientModule,
+    CategoryTableModule
 ],
   providers: [],
   bootstrap: [AppComponent]

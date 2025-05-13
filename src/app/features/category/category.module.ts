@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarModule } from 'src/app/ui/organisms/navbar/navbar.module';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { FooterModule } from 'src/app/ui/organisms/footer/footer.module';
+import { CategoryTableModule } from 'src/app/ui/organisms/category-table/category-table.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { FooterModule } from 'src/app/ui/organisms/footer/footer.module';
     CommonModule,
     ReactiveFormsModule,
     NavbarModule , 
-    FooterModule
+    FooterModule,
+    CategoryTableModule
   ],
   exports: [
     CategoryListComponent

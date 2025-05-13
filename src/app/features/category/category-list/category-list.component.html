@@ -1,9 +1,18 @@
-<nav>
-  <app-navbar></app-navbar>
-</nav>
-<main>
+<main class="page-wrapper">
+  <section class="page-content">
 
+    <article class="panel" aria-labelledby="category-heading">
+      <header>
+        <h2 id="category-heading">Categorías existentes</h2>
+      </header>
+
+      <app-category-table
+        [categories]="categories"
+        [currentPage]="currentPage"
+        [totalPages]="totalPages"
+        (pageChange)="changePage($event)">
+      </app-category-table>
+    </article>
+
+  </section>
 </main>
-<footer>
-  <app-footer></app-footer>
-</footer>

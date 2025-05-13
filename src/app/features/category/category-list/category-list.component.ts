@@ -1,80 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { map, Observable, subscribeOn } from 'rxjs';
+import { Component, OnInit, inject } from '@angular/core';
+import { CategoryService } from 'src/app/core/services/category.service';
 import { Category } from 'src/app/core/models/category';
-import { PageDto } from 'src/app/core/models/pageDto';
-import { CategoryService } from '../category.service';
-
-
-
 
 @Component({
   selector: 'app-category-list',
   templateUrl: './category-list.component.html',
-  styleUrls: ['./category-list.component.css']
 })
 export class CategoryListComponent implements OnInit {
+  categories: Category[] = [];
+  currentPage: number = 0;
+  totalPages: number = 0;
+  pageSize: number = 5;
 
-  // Put private propiertes 
+  private readonly categoryService = inject(CategoryService);
 
-  PageDto!: Observable<PageDto<Category>>; // no iniciar, viene del servicio ?opcional ! ten fe , poner any no
-
-  //categoriesList: Category[] = [];
-
-  page = 0;
-  size = 5;
-  totalPages = 1;
-  pages: number[] = [];
-
-  //Create with @Inject, no with dependency inyection 
-  //ngOinit ponerle el contructor 
-  constructor(private categoryService: CategoryService) {}
-
-  ngOnInit(): void { 
-    //this.getCategories();
-    //lamar al 2, para no usar observable sino async
-    this.getCategories2();
+  ngOnInit(): void {
+    this.loadCategories();
   }
-  
-  getCategories(): void {
-    // pipe asynch isntead o subscrib
-    this.categoryService.getCategories(this.page, this.size, true).subscribe({
+
+  loadCategories(page: number = 0): void {
+    this.categoryService.getCategories(page, this.pageSize, true).subscribe({
       next: (data) => {
-        //this.categoriesList = data.content;
+        this.categories = data.content;
         this.totalPages = data.totalPages;
-       // this.pages = Array.from({ length: this.totalPages }, (_, i) => i);
+        this.currentPage = data.pageNumber;
       },
-      error: (error: unknown) => {
-        if (error instanceof Error) {
-          console.error('Error fetching categories:', error.message);
-        } else {
-          console.error('Error fetching categories:', error);
-        }
-      }
+      error: (error) => console.error(error)
     });
   }
 
-  goToPage(p: number): void {
-    this.page = p;
-    this.getCategories();
+  changePage(page: number): void {
+    this.loadCategories(page);
   }
-
-  prevPage(): void {
-    if (this.page > 0) {
-      this.page--;
-      this.getCategories();
-    }
-  }
-
-  nextPage(): void {
-    if (this.page < this.totalPages - 1) {
-      this.page++;
-      this.getCategories();
-    }
-  }
-
-   getCategories2(): void {
-    this.PageDto = this.categoryService.getCategories(this.page, this.size, true).pipe(map((data) => {console.log(data); return data;}));
-   
-   }
-
 }

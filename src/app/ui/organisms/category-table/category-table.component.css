@@ -1,0 +1,75 @@
+.category-table-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.category-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.category-table thead {
+  background-color: #f3f4f6;
+}
+
+.category-table th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  color: #6b7280;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.category-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  color: #374151;
+  font-size: 0.9rem;
+}
+
+.category-table tr:last-child td {
+  border-bottom: none;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.delete-btn:hover {
+  background-color: #fee2e2;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.pagination-controls button {
+  border: 1px solid #d1d5db;
+  background-color: #ffffff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.pagination-controls button.active {
+  background-color: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+}
+
+.pagination-controls button:hover {
+  background-color: #e0e7ff;
+}
