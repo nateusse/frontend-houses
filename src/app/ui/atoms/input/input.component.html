@@ -1,0 +1,10 @@
+<label [attr.for]="id">{{ label }} <span *ngIf="required">*</span></label>
+<input 
+  type="text"
+  class="form-control"
+  [attr.placeholder]="placeholder"
+  [attr.maxLength]="maxLength"
+  [required]="required"
+  [id]="id"
+  [(ngModel)]="value"
+/>

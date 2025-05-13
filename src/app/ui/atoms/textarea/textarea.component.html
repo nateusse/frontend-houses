@@ -1,0 +1,18 @@
+<div class="mb-3">
+  <label [attr.for]="id" class="form-label">
+    {{ label }} <span *ngIf="required" class="text-danger">*</span>
+  </label>
+
+  <textarea
+    class="form-control"
+    [id]="id"
+    [attr.placeholder]="placeholder"
+    [attr.maxLength]="maxLength"
+    [required]="required"
+    [formControlName]="formControlName">
+  </textarea>
+
+  <div class="text-end small text-muted mt-1">
+    {{ controlValue.length }} / {{ maxLength }}
+  </div>
+</div>

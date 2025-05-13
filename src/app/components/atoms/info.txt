@@ -1,3 +1,0 @@
-Basic html
-
-Labels, inpus, buttons
